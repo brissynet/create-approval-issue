@@ -10,7 +10,7 @@ jobs:
         uses: brissynet/create-approval-issue@v1
         with:
           repository: brissynet/create-approval-issue
-          token: ${{ GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           title: Hello everyone
           body: |
             Indeed Hello
