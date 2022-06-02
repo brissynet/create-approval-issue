@@ -2,7 +2,7 @@ name: "create-approval-issue"
 description: "Action to create an issue for deployment approval to an environment"
 inputs:
   repository:
-    description: "repository to check in format org/repo"
+    description: "repository to use"
     required: true
   token:
     description: "GITHUB_TOKEN"
