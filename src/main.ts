@@ -11,7 +11,7 @@ async function runTask(): Promise<void> {
     const labels = core.getInput('labels')
     const assignees = core.getInput('assignees')
 
-    console.log(labels.toString())
+    console.log(owner)
 
   } catch (error: any) {
     core.setFailed(error.message)
