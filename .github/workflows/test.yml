@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Run local issue"
-        uses: brissynet/create-approval-issue@v1
+        uses: brissynet/create-approval-issue
         with:
           repository: brissynet/create-approval-issue
           token: ${{ secrets.GITHUB_TOKEN }}
