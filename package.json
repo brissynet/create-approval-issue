@@ -1,0 +1,26 @@
+{
+  "name": "create-approval-issue",
+  "version": "1.0.0",
+  "description": "Creates an issue",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/main.ts -o dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedeltapos/platform-utilities"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/fedeltapos/platform-utilities#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.1",
+    "@octokit/rest": "^18.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "@vercel/ncc": "^0.33.4"
+  }
+}

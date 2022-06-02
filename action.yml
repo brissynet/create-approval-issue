@@ -1,0 +1,27 @@
+name: "create-approval-issue"
+description: "Action to create an issue for deployment approval to an environment"
+inputs:
+  repository:
+    description: "repository to check in format org/repo"
+    required: true
+  token:
+    description: "GITHUB_TOKEN"
+    required: true
+  title:
+    description: "Issue Title"
+    required: true
+  body:
+    description: "Issue Body"
+    required: true
+  labels:
+    description: "Issue labels"
+    required: false
+  workflow:
+    description: "Triggering workflow name"
+    required: false
+  assignees:
+    description: "Assignees"
+    required: false
+runs:
+  using: "node16"
+  main: "dist/index.js"
