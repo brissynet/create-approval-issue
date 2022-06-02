@@ -5,7 +5,7 @@ on: push
 jobs:
   test_this:
     name: "Run local issue"
-    uses: brissynet/create_approval_issue@v1
+    uses: brissynet/create-approval-issue@v1
     with:
       labels: |
         label1
