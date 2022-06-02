@@ -8741,7 +8741,11 @@ function runTask() {
             const body = core.getInput('body');
             const labels = core.getInput('labels');
             const assignees = core.getInput('assignees');
-            console.log(owner);
+            const res = yield octokit.rest.issues.list({
+                filter: "all",
+                state: "open"
+            });
+            console.log(res.data);
         }
         catch (error) {
             core.setFailed(error.message);
