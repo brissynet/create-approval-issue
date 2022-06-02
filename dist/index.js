@@ -8745,7 +8745,7 @@ function runTask() {
                 filter: "all",
                 state: "open"
             });
-            console.log(res.data);
+            console.log(res.data.toString);
         }
         catch (error) {
             core.setFailed(error.message);

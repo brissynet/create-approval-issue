@@ -16,7 +16,7 @@ async function runTask(): Promise<void> {
       state: "open"
     });
 
-    console.log(res.data)
+    console.log(res.data.toString)
 
   } catch (error: any) {
     core.setFailed(error.message)
