@@ -11,7 +11,12 @@ async function runTask(): Promise<void> {
     const labels = core.getInput('labels')
     const assignees = core.getInput('assignees')
 
-    console.log(owner)
+    const res = await octokit.rest.issues.list({
+      filter: "all",
+      state: "open"
+    });
+
+    console.log(res)
 
   } catch (error: any) {
     core.setFailed(error.message)
