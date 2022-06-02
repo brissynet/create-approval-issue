@@ -8741,6 +8741,7 @@ function runTask() {
             const body = core.getInput('body');
             const labels = core.getInput('labels');
             const assignees = core.getInput('assignees');
+            console.log(labels.toString());
         }
         catch (error) {
             core.setFailed(error.message);
