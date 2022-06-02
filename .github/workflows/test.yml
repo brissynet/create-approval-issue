@@ -1,0 +1,13 @@
+name: Test approval issue
+
+on: push
+
+jobs:
+  test_this:
+    name: "Run local issue"
+    uses: brissynet/create_approval_issue@v1
+    with:
+      labels: |
+        label1
+        label2
+        label3
