@@ -8741,12 +8741,16 @@ function runTask() {
             const body = core.getInput('body');
             const labels = core.getInput('labels');
             const assignees = core.getInput('assignees');
-            const res = yield octokit.rest.issues.listForRepo({
+            const run_number = core.getInput('run_number');
+            const current = yield octokit.rest.issues.listForRepo({
                 owner: owner,
                 repo: repo,
                 labels: labels
             });
-            console.log(res.data);
+            if (current.data.length > 0) {
+                // one already exists.  All we need to do is update the label to the latest run
+                console.log(current.data);
+            }
         }
         catch (error) {
             core.setFailed(error.message);

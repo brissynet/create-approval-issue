@@ -15,4 +15,5 @@ jobs:
           body: |
             Indeed Hello
             Everyone
-          labels: development,utl_stateful,7
+          labels: environment:development,pipeline:utl_stateful
+          run: 7

@@ -10,14 +10,18 @@ async function runTask(): Promise<void> {
     const body = core.getInput('body')
     const labels = core.getInput('labels')
     const assignees = core.getInput('assignees')
+    const run_number = core.getInput('run_number')
 
-    const res = await octokit.rest.issues.listForRepo({
+    const current = await octokit.rest.issues.listForRepo({
       owner: owner,
       repo: repo,
       labels: labels
     })
 
-    console.log(res.data)
+    if (current.data.length > 0) {
+      // one already exists.  All we need to do is update the label to the latest run
+      console.log(current.data)
+    }
 
   } catch (error: any) {
     core.setFailed(error.message)
