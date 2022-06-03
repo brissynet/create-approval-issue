@@ -8741,10 +8741,10 @@ function runTask() {
             const body = core.getInput('body');
             const labels = core.getInput('labels');
             const assignees = core.getInput('assignees');
-            console.log(labels);
             const res = yield octokit.rest.issues.listForRepo({
                 owner: owner,
-                repo: repo
+                repo: repo,
+                labels: labels
             });
             console.log(res.data);
         }
