@@ -15,7 +15,4 @@ jobs:
           body: |
             Indeed Hello
             Everyone
-          labels: |
-            label1
-            label2
-            label3
+          labels: label1,label2,label3
