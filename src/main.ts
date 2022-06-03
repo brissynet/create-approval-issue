@@ -16,7 +16,7 @@ async function runTask(): Promise<void> {
       repo: repo
     })
 
-    console.log(res.data.toString)
+    console.log(res.data)
 
   } catch (error: any) {
     core.setFailed(error.message)

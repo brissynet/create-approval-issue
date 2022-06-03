@@ -8745,7 +8745,7 @@ function runTask() {
                 owner: owner,
                 repo: repo
             });
-            console.log(res.data.toString);
+            console.log(res.data);
         }
         catch (error) {
             core.setFailed(error.message);
