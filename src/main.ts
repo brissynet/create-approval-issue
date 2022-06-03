@@ -13,10 +13,11 @@ async function runTask(): Promise<void> {
 
     const res = await octokit.rest.issues.listForRepo({
       owner: owner,
-      repo: repo
+      repo: repo,
+      labels: 'development'
     })
 
-    console.log(res.data)
+
 
   } catch (error: any) {
     core.setFailed(error.message)
