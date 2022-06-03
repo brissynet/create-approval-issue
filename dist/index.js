@@ -8746,6 +8746,7 @@ function runTask() {
                 repo: repo,
                 labels: 'development'
             });
+            console.log(res.data);
         }
         catch (error) {
             core.setFailed(error.message);

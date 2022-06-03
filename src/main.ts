@@ -17,7 +17,7 @@ async function runTask(): Promise<void> {
       labels: 'development'
     })
 
-
+    console.log(res.data)
 
   } catch (error: any) {
     core.setFailed(error.message)
