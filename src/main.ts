@@ -11,10 +11,10 @@ async function runTask(): Promise<void> {
     const labels = core.getInput('labels')
     const assignees = core.getInput('assignees')
 
-    const res = await octokit.rest.issues.list({
-      filter: "all",
-      state: "open"
-    });
+    const res = await octokit.rest.issues.listForRepo({
+      owner: owner,
+      repo: repo
+    })
 
     console.log(res.data.toString)
 

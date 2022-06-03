@@ -8741,9 +8741,9 @@ function runTask() {
             const body = core.getInput('body');
             const labels = core.getInput('labels');
             const assignees = core.getInput('assignees');
-            const res = yield octokit.rest.issues.list({
-                filter: "all",
-                state: "open"
+            const res = yield octokit.rest.issues.listForRepo({
+                owner: owner,
+                repo: repo
             });
             console.log(res.data.toString);
         }
