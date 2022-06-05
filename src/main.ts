@@ -19,8 +19,19 @@ async function runTask(): Promise<void> {
     })
 
     if (current.data.length > 0) {
-      // one already exists.  All we need to do is update the label to the latest run
-      console.log(current.data)
+      // get the issue number
+      const issue_number = current.data[0].number
+
+      // set new labels for this issue
+      await octokit.rest.issues.setLabels({
+        owner: owner,
+        repo: repo,
+        issue_number: issue_number,
+        labels: [
+          labels,
+          "test123"
+        ]
+      })
     }
 
   } catch (error: any) {
