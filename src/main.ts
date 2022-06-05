@@ -28,7 +28,6 @@ async function runTask(): Promise<void> {
         repo: repo,
         issue_number: issue_number,
         labels: [
-          labels,
           "test123"
         ]
       })
