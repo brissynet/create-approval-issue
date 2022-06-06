@@ -11,12 +11,14 @@ jobs:
       - name: Get Pipeline Details
         id: pipeline_details
         run: |
-          echo "::set-output name=environment::$(echo $context | jq -r '.[].name' | grep environment)"
-          echo "::set-output name=pipeline::$(echo $context | jq -r '.[].name' | grep pipeline)"
+          env=$(echo $context | jq -r '.[].name' | grep environment)
+          echo "::set-output name=environment::${env#'environment:'}"
+          workflow=$(echo $context | jq -r '.[].name' | grep pipeline)
+          echo "::set-output name=pipeline::${workflow#'pipeline:'}"
         env:
           context: ${{ toJSON(github.event.issue.labels) }}
 
       - name: Call the end pipeline
         run: |
           echo "${{ steps.pipeline_details.outputs.environment }}"
-          echo "${{ steps.pipeline_details.outputs.environment }}"
+          echo "${{ steps.pipeline_details.outputs.pipeline }}"
