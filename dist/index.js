@@ -8751,13 +8751,13 @@ function runTask() {
                 // get the issue number
                 const issue_number = current.data[0].number;
                 // set new labels for this issue
+                const new_labels = labels.split(',');
+                new_labels.push("run:" + run_number);
                 yield octokit.rest.issues.setLabels({
                     owner: owner,
                     repo: repo,
                     issue_number: issue_number,
-                    labels: [
-                        "test123"
-                    ]
+                    labels: new_labels
                 });
             }
         }

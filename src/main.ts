@@ -23,16 +23,16 @@ async function runTask(): Promise<void> {
       const issue_number = current.data[0].number
 
       // set new labels for this issue
+      const new_labels = labels.split(',')
+      new_labels.push("run:" + run_number)
+
       await octokit.rest.issues.setLabels({
         owner: owner,
         repo: repo,
         issue_number: issue_number,
-        labels: [
-          "test123"
-        ]
+        labels: new_labels
       })
     }
-
   } catch (error: any) {
     core.setFailed(error.message)
   }
