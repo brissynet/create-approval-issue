@@ -8745,15 +8745,25 @@ function runTask() {
             const current = yield octokit.rest.issues.listForRepo({
                 owner: owner,
                 repo: repo,
+                state: 'open',
                 labels: labels
             });
-            if (current.data.length > 0) {
+            const new_labels = labels.split(',');
+            new_labels.push("run:" + run_number);
+            if (current.data.length == 0) {
+                // create a new issue
+                yield octokit.rest.issues.create({
+                    owner: owner,
+                    repo: repo,
+                    title: title,
+                    body: body,
+                    assignees: assignees.split(','),
+                    labels: new_labels
+                });
+            }
+            else if (current.data.length > 0) {
                 // get the issue number
                 var issue_number = current.data[0].number;
-                // set new labels for this issue
-                var new_labels = labels.split(',');
-                new_labels.push("run:" + run_number);
-                console.log(labels);
                 yield octokit.rest.issues.setLabels({
                     owner: owner,
                     repo: repo,
