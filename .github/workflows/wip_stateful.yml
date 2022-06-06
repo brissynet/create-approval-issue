@@ -12,7 +12,7 @@ jobs:
         id: pipeline_details
         run: |
           echo "::set-output name=environment::$(echo $context | jq -r '.[].name' | grep environment)"
-          echo "::set-output name=pipeline::$(echo $context | jq -r '.[].name' | grep pipeline)
+          echo "::set-output name=pipeline::$(echo $context | jq -r '.[].name' | grep pipeline)"
         env:
           context: ${{ toJSON(github.event.issue.labels) }}
 
