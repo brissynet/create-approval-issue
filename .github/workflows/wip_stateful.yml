@@ -8,4 +8,4 @@ jobs:
   approval:
     runs-on: ubuntu-latest
     steps:
-      - run: cat "${{ toJSON(github.event.issue.labels) }} | jq -r '.[].name'"
+      - run: cat "${{ toJSON(github.event.issue.labels) }}" | jq -r '.[].name'
