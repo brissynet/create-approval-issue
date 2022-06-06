@@ -1,0 +1,11 @@
+name: Pipeline apply
+
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  approval:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.event.issue.labels }}
