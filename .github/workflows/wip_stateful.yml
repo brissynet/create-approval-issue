@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo $context | jq -r '.[].name'
+          echo $context | jq -r '.[].name' | grep environment
         env:
           context: ${{ toJSON(github.event.issue.labels) }}
