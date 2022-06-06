@@ -34,15 +34,16 @@ async function runTask(): Promise<void> {
       })
     }
     else if (current.data.length > 0) {
-      // get the issue number
+      // get the current issue number
       var issue_number = current.data[0].number
 
-      await octokit.rest.issues.setLabels({
+      await octokit.rest.issues.update({
         owner: owner,
         repo: repo,
         issue_number: issue_number,
-        labels: new_labels
-      })
+        labels: new_labels,
+        body: body
+      });
     }
   } catch (error: any) {
     core.setFailed(error.message)

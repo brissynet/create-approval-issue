@@ -8762,13 +8762,14 @@ function runTask() {
                 });
             }
             else if (current.data.length > 0) {
-                // get the issue number
+                // get the current issue number
                 var issue_number = current.data[0].number;
-                yield octokit.rest.issues.setLabels({
+                yield octokit.rest.issues.update({
                     owner: owner,
                     repo: repo,
                     issue_number: issue_number,
-                    labels: new_labels
+                    labels: new_labels,
+                    body: body
                 });
             }
         }
