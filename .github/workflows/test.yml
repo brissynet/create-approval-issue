@@ -13,7 +13,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: Hello everyone
           body: |
-            Indeed Hello
-            Everyone
+            Greed is good
           labels: environment:development,pipeline:wip_stateful
           run_number: 11
