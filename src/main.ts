@@ -20,10 +20,10 @@ async function runTask(): Promise<void> {
 
     if (current.data.length > 0) {
       // get the issue number
-      const issue_number = current.data[0].number
+      var issue_number = current.data[0].number
 
       // set new labels for this issue
-      let new_labels = labels.split(',')
+      var new_labels: string[] = labels.split(',')
       new_labels.push("run:" + run_number)
 
       console.log(new_labels.toString())
