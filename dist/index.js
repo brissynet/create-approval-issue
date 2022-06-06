@@ -8753,7 +8753,7 @@ function runTask() {
                 // set new labels for this issue
                 var new_labels = labels.split(',');
                 new_labels.push("run:" + run_number);
-                console.log(new_labels.toString());
+                console.log(labels);
                 yield octokit.rest.issues.setLabels({
                     owner: owner,
                     repo: repo,
