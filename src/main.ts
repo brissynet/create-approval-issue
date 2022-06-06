@@ -26,7 +26,7 @@ async function runTask(): Promise<void> {
       const new_labels = labels.split(',')
       new_labels.push("run:" + run_number)
 
-      console.log(new_labels)
+      console.log(new_labels.toString())
 
       await octokit.rest.issues.setLabels({
         owner: owner,
