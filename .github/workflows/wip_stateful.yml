@@ -8,7 +8,15 @@ jobs:
   approval:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo $context | jq -r '.[].name' | grep environment
+      - name: Get Pipeline Details
+        id: pipeline_details
+        run: |
+          echo "::set-output name=environment::$(echo $context | jq -r '.[].name' | grep environment)"
+          echo "::set-output name=pipeline::$(echo $context | jq -r '.[].name' | grep pipeline)
         env:
           context: ${{ toJSON(github.event.issue.labels) }}
+
+      - name: Call the end pipeline
+        run: |
+          echo "${{ steps.pipeline_details.outputs.environment }}"
+          echo "${{ steps.pipeline_details.outputs.environment }}"
